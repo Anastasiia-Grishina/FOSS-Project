@@ -1,0 +1,58 @@
+#!/bin/sh
+# TUI implementation
+
+# Temporary files indexed with process id
+FILE=/tmp/channel-choice-$$
+ERROR=/tmp/channel-choice-err-$$
+
+# Warn user if the file with get request is not installed
+missing_prog () {
+	echo "Please, run 'make' before executing the programme."
+	exit 1
+}
+
+# Clean temporary files before exit
+end () {
+	echo "\nExit. Clenaing output and error files."
+	rm -rf $FILE $ERROR
+	exit
+} 
+
+# Menu output
+print_menu () {
+	printf "\n\nChoose a channel option\n"
+	echo "1: Unencrypted channel"
+	echo "2: Encrypted channel"
+	echo "0: Exit"
+}
+
+# Catch interruption and exit safely with memory release
+trap end SIGINT
+
+# Initialization of command and choice variables
+CHANNEL_CHOICE_CMD=""
+USER_CHOICE=0
+
+# Check if main file exists
+which channel_choice 2> /dev/null && CHANNEL_CHOICE_CMD=channel_choice || missing_prog
+
+# Text output
+while true
+do
+
+	# Read user choice after printing the menu
+	print_menu
+	read -p "Your choice: " USER_CHOICE
+
+	# Cases of choice: 0-exit, 1-unencrypted channel, 2-encrypted channel
+	if [ "$USER_CHOICE" -eq 0 ]
+	then
+		end
+	elif [ "$USER_CHOICE" -eq 1 -o "$USER_CHOICE" -eq 2 ]
+	then
+		echo $USER_CHOICE | $CHANNEL_CHOICE_CMD
+		echo "\nYou have switched to channel $USER_CHOICE"
+	else
+		echo "\nInvalid input. Please, enter integer numbers 0-2."
+	fi
+done

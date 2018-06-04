@@ -1,0 +1,71 @@
+#!/bin/sh
+# GUI and network implementation
+
+# Network variables declaration
+HOST=localhost
+PORT=1234
+
+# Temporary files indexed with process id
+FILE=/tmp/channel-choice-$$
+ERROR=/tmp/channel-choice-err-$$
+
+# Localization auxiliary variable
+GETTEXT="gettext -d channel_choice_gui_nw"
+
+# Warn user if the file with get request is not installed
+missing_prog () {
+	echo "`$GETTEXT \"Please, run 'make' before executing the program.\"`"
+	exit 1
+}
+
+# Clean temporary files before exit
+end () {
+	printf "\\n`$GETTEXT \"Exit. Cleaning the error and output files.\"`\\n\\n"
+	rm -rf $FILE $ERROR
+	exit 0
+} 
+
+# Source for dialog inputbox (user interface)  
+PRINT_MENU="`$GETTEXT \"Please, choose a channel option\"` \\n\\n`$GETTEXT \"1: Unencrypted channel\"`\\n`$GETTEXT \"2: Encrypted channel\"` \\n`$GETTEXT \"0: Exit\"`\\n\\n`$GETTEXT \"Your choice:\"`"
+
+# Catch interruption and exit safely with memory release
+trap end SIGINT
+
+# Check if main file exists
+which channel_choice 2> /dev/null && CHANNEL_CHOICE_CMD=channel_choice || missing_prog
+
+# User interface input 
+while true
+do
+	# Use gdialog or dialog depending on what is installed on the user side
+	which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=dialog
+
+	# Read user choice after printing the menu
+	$DIALOG --inputbox "$PRINT_MENU" 100 60 2> $FILE || end
+	USER_CHOICE=`cat $FILE`
+
+	# Cases of choice: 0-exit, 1-unencrypted channel, 2-encrypted channel
+	if [ "$USER_CHOICE" -eq 0 ]
+	then
+		# Confirm exit
+		MSG="`$GETTEXT \"Exit?\"`"
+		$DIALOG --yesno "$MSG" 100 60 && end
+
+	elif [ "$USER_CHOICE" -eq 1 -o "$USER_CHOICE" -eq 2 ]
+	then
+		# In case of network version - connect via nc
+		if [ `basename $0` = "channel_choice_nw" ]
+		then
+			CHANNEL_CHOICE="nc $HOST $PORT"
+		fi
+		# Confirm choice of channel and call executable with request
+		MSG="`$GETTEXT \"Switch channel to \"` $USER_CHOICE?"
+		$DIALOG --yesno "$MSG" 100 60 && echo $USER_CHOICE | $CHANNEL_CHOICE_CMD
+
+	else
+		# In case of other input - ask user to follow menu instructions
+		MSG="`$GETTEXT \"Invalid input. Please, enter integer numbers 0-2.\"`\\n"
+		$MSG+="`\$GETTEXT \"Try again?\"`"
+		$DIALOG --yesno "$MSG" 100 60 || end
+	fi
+done

@@ -1,0 +1,12 @@
+# default: on
+# description: The calculator server
+service channel_choice
+{
+	flags		= REUSE
+	socket_type	= stream        
+	wait		= no
+	user		= nobody
+	server		= /usr/local/bin/channel_choice
+	disable		= no
+}
+
