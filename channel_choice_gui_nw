@@ -56,7 +56,7 @@ do
 		# In case of network version - connect via nc
 		if [ `basename $0` = "channel_choice_nw" ]
 		then
-			CHANNEL_CHOICE="nc $HOST $PORT"
+			CHANNEL_CHOICE_CMD="nc $HOST $PORT"
 		fi
 		# Confirm choice of channel and call executable with request
 		MSG="`$GETTEXT \"Switch channel to \"` $USER_CHOICE?"
