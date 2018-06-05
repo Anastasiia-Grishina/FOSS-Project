@@ -10,10 +10,10 @@ For successful program installation the following software is needed
 Run the following commands for installation
 ```
 git clone https://github.com/Anastasiia-Grishina/FOSS-Project
-make install
+make instal
 ```
 
-##Use
+## Use
 To use TUI, please, run
 ```
 channel_choice_tui
