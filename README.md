@@ -13,5 +13,21 @@ git clone https://github.com/Anastasiia-Grishina/FOSS-Project
 make install
 ```
 
+##Use
+To use TUI, please, run
+```
+channel_choice_tui
+```
+
+To use GUI, please, run
+```
+channel_choice_tui
+```
+
+To test network connection, please, run
+```
+channel_choice_nw
+```
+
 ## License
 GNU General Public License, Version 3, 29 June 2007, for the project is available [here](https://github.com/Anastasiia-Grishina/FOSS-Project/blob/master/LICENSE)
