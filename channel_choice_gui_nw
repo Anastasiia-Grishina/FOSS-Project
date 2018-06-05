@@ -64,8 +64,7 @@ do
 
 	else
 		# In case of other input - ask user to follow menu instructions
-		MSG="`$GETTEXT \"Invalid input. Please, enter integer numbers 0-2.\"`\\n"
-		$MSG+="`\$GETTEXT \"Try again?\"`"
+		MSG="`$GETTEXT \"Invalid input. Please, enter integer numbers 0-2.\"`\\n `\$GETTEXT \"Try again?\"`"
 		$DIALOG --yesno "$MSG" 100 60 || end
 	fi
 done
