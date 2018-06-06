@@ -26,6 +26,7 @@ end () {
 	exit 0
 } 
 
+# Display error occurrence
 error_msg() {
 	TITLE="`$GETTEXT \"Error\"`" 
 	MSG="`\$GETTEXT \"Error. Try again?\"`"
@@ -73,7 +74,7 @@ do
 			MSG="`\$GETTEXT \"You have switched to channel \"` $USER_CHOICE"." `\$GETTEXT \"Try again?\"`"
 			$DIALOG --yesno "$MSG" 100 60 || end
 		else
-			error_msg $ERROR
+			error_msg
 		fi
 	fi
 done
