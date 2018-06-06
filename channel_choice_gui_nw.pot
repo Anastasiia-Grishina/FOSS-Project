@@ -25,6 +25,9 @@ msgstr ""
 msgid "Exit. Cleaning the error and output files."
 msgstr ""
 
+#: channel_choice_gui_nw:
+msgid "Channel switcher"
+msgstr ""
 
 #: channel_choice_gui_nw:34
 msgid "Please, choose a channel option"

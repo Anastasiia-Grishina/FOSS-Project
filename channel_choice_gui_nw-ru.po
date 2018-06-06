@@ -16,6 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: channel_choice_gui_nw:
+msgid "Channel switcher"
+msgstr "Переключатель каналов"
+
 #: channel_choice_gui_nw:34
 msgid "Please, choose a channel option"
 msgstr "Пожалуйста, выберите способ передачи"

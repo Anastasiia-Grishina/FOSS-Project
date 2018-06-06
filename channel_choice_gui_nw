@@ -33,7 +33,8 @@ error_msg() {
 	$DIALOG --title "$TITLE" --yesno "$MSG" 100 60 || end
 }
 
-# Source for dialog menu (user interface)  
+# Source for dialog menu (user interface) 
+MENU_T="`$GETTEXT \"Channel switcher\"`"
 MENU_H="`$GETTEXT \"Please, choose a channel option\"`" 
 MENU_1="`$GETTEXT \"Unencrypted channel\"`"
 MENU_2="`$GETTEXT \"Encrypted channel\"`"
@@ -59,7 +60,7 @@ do
 	which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=dialog
 
 	# Read user choice after printing the menu
-	$DIALOG --menu "$MENU_H" 10 60 2 1 "$MENU_1" 2 "$MENU_2" 2> $FILE1 || end
+	$DIALOG --clear --title "$MENU_T" --menu "$MENU_H" 10 50 2 1 "$MENU_1" 2 "$MENU_2" 2> $FILE1 || end
 	USER_CHOICE=`cat $FILE1`
 
 		
