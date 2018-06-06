@@ -59,7 +59,7 @@ do
 	which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=dialog
 
 	# Read user choice after printing the menu
-	$DIALOG --menu "$MENU" 10 60 2 1 "$MENU_1" 2 "$MENU_2" 2> $FILE1 || end
+	$DIALOG --menu "$MENU_H" 10 60 2 1 "$MENU_1" 2 "$MENU_2" 2> $FILE1 || end
 	USER_CHOICE=`cat $FILE1`
 
 		
