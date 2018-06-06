@@ -3,6 +3,5 @@
 
 read CHANNEL
 curl -X GET --silent http://localhost:8080/channel/1/$CHANNEL
-EXIT_STATUS=$?
 
-exit $EXIT_STATUS
+exit 

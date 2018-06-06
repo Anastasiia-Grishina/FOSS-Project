@@ -21,20 +21,17 @@ msgid "Please, choose a channel option"
 msgstr "Пожалуйста, выберите способ передачи"
 
 #: channel_choice_gui_nw:34
-msgid "1: Unencrypted channel"
-msgstr "1: Канал без шифрования"
+msgid "Unencrypted channel"
+msgstr "Канал без шифрования"
 
 #: channel_choice_gui_nw:34
-msgid "2: Encrypted channel"
-msgstr "2: Канал с шифрованием"
+msgid "Encrypted channel"
+msgstr "Канал с шифрованием"
 
-#: channel_choice_gui_nw:34
-msgid "0: Exit"
-msgstr "0: Выход"
 
-#: channel_choice_gui_nw:34
-msgid "Your choice:"
-msgstr "Ваш выбор:"
+#: channel_choice_gui_nw:43
+msgid "Error"
+msgstr "Ошибка"
 
 #: channel_choice_gui_nw:43
 msgid "Exit?"
@@ -44,6 +41,10 @@ msgstr "Выход?"
 msgid "Switch channel to "
 msgstr "Переключить канал передачи на "
 
+#: channel_choice_gui_nw:52
+msgid "You have switched to channel "
+msgstr "Вы переключили канал передачи на "
+
 #: channel_choice_gui_nw:57
 msgid "Invalid input. Please, enter integer numbers 0-2."
 msgstr "Некорректный ввод. Пожалуйста, используйте целые числа 0-2."
@@ -52,3 +53,7 @@ msgstr "Некорректный ввод. Пожалуйста, использ�
 #: channel_choice_gui_nw:72
 msgid "Try again?"
 msgstr "Попробовать еще раз?"
+
+#: channel_choice_gui_nw:72
+msgid "Error. Try again?"
+msgstr "Ошибка. Попробовать еще раз?"

@@ -31,19 +31,15 @@ msgid "Please, choose a channel option"
 msgstr ""
 
 #: channel_choice_gui_nw:34
-msgid "1: Unencrypted channel"
+msgid "Unencrypted channel"
 msgstr ""
 
 #: channel_choice_gui_nw:34
-msgid "2: Encrypted channel"
+msgid "Encrypted channel"
 msgstr ""
 
-#: channel_choice_gui_nw:34
-msgid "0: Exit"
-msgstr ""
-
-#: channel_choice_gui_nw:34
-msgid "Your choice:"
+#: channel_choice_gui_nw:
+msgid "Error"
 msgstr ""
 
 #: channel_choice_gui_nw:43
@@ -60,4 +56,8 @@ msgstr ""
 
 #: channel_choice_gui_nw:72
 msgid "Try again?"
+msgstr ""
+
+#: channel_choice_gui_nw:
+msgid "Error. Try again?"
 msgstr ""
