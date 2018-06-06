@@ -57,6 +57,10 @@ msgstr ""
 msgid "Invalid input. Please, enter integer numbers 0-2."
 msgstr ""
 
+#: channel_choice_gui_nw:
+msgid "You have switched to channel "
+msgstr ""
+
 #: channel_choice_gui_nw:72
 msgid "Try again?"
 msgstr ""

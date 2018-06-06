@@ -63,7 +63,7 @@ do
 	$DIALOG --clear --title "$MENU_T" --menu "$MENU_H" 10 50 2 1 "$MENU_1" 2 "$MENU_2" 2> $FILE1 || end
 	USER_CHOICE=`cat $FILE1`
 
-		
+	echo $USER_CHOICE
 	# Confirm choice of channel and call executable with request
 	MSG="`$GETTEXT \"Switch channel to \"` $USER_CHOICE?"
 	INPUT=0
